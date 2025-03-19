@@ -8,9 +8,13 @@ let y = .5;
 let z = 0;
 
 const triangle_vertices = [
-    0, y, z,
-    -x, -y, z,
-    x, -y, z
+    -x, y, 0,
+    -x, -y, 0,
+    x, y, 0,
+    
+    x, y, 0,
+    -x, -y, 0,
+    x, -y, 0,
 ];
 
 // 1] 버퍼 생성
@@ -41,7 +45,7 @@ const triangle_fragment_code =
 `
     void main()
     {
-        gl_FragColor = vec4( 1, 1, 0, 1 );
+        gl_FragColor = vec4( 1, 0, 0, 1 );
     }
 `;
 
@@ -68,7 +72,7 @@ gl.enableVertexAttribArray( pos );  //vertex attribute 속성 활성화
 
 // 5] 랜더링
 function render() {
-    gl.clearColor( 0.2, 0.3, 0.4, 1 );
+    gl.clearColor( 0, 0, 0, 1 );
     gl.enable( gl.DEPTH_TEST ); //겹치는 물체가 있을 시 카메라에 정보를 전달하여 깊이에 따라 배제함
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT );
     gl.viewport( 0, 0, canvas.width, canvas.height );
