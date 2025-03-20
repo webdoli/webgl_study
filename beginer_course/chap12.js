@@ -78,7 +78,7 @@ gl.vertexAttribPointer( pos, 3, gl.FLOAT, false, 6*4, 0 ); // webGL에서 vertex
     // size(3): 각 vertex속성의 구성 요소 개수, 3 => x, y, z의 좌표라는 의미
     // type(gl.FLOAT): 데이터 타입, gl.FLOAT => 32비트 부동소수점
     // normalized(false): 정규화 여부, false => 원래 값 유지, true => -1 ~ 1 범위로 정규화
-    // stride(6*4): 한 vertex 데이터의 전체 크기(바이트 단위)
+    // stride(6*4): 1개의 vertex값에 들어가는 데이터 숫자가 6개니깐 6*4(바이트 단위)
     // offset(0): 버퍼의 시작점에서 이 속성이 시작되는 위치(바이트 단위)
 gl.enableVertexAttribArray( pos );  //vertex attribute 속성 활성화
 

@@ -7,7 +7,8 @@ const util = new WebGLUtils();
 const canvas = document.getElementById('Canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const gl = util.getGLContext( canvas );
+const bgColor = [ 1.0, 1.0, 1.0, 1.0 ];
+const gl = util.getGLContext( canvas, bgColor );
 
 const triangle_vertices = [
     0.0, -1.0, 
