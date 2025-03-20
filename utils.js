@@ -30,7 +30,7 @@ class WebGLUtils {
         return program;
     }
 
-    createAndBindBuffer = ( bufferType, typeOfDrawing, data ) => {
+    createAndBindBuffer = ( gl, bufferType, typeOfDrawing, data ) => {
         const buffer = gl.createBuffer();
         gl.bindBuffer( bufferType, buffer );
         gl.bufferData( bufferType, data, typeOfDrawing);
@@ -39,7 +39,7 @@ class WebGLUtils {
 
     }
 
-    linkGPUAndCPU = ( obj ) => {
+    linkGPUAndCPU = ( gl, obj ) => {
         const position = gl.getAttribLocation( obj.program, obj.gpuVariable );
         gl.enableVertexAttribArray( position );
         gl.bindBuffer( obj.channel, obj.buffer );
@@ -47,3 +47,5 @@ class WebGLUtils {
         return position;
     }
 }
+
+export default WebGLUtils

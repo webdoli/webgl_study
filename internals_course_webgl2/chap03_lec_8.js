@@ -1,3 +1,8 @@
+// import testModule from "../moduleTest.js";
+
+// const testM = testModule();
+import WebGLUtils from "../utils.js";
+
 const util = new WebGLUtils();
 const canvas = document.getElementById('Canvas');
 canvas.width = window.innerWidth;
@@ -34,11 +39,11 @@ const fragmentShader = `#version 300 es
 const program = util.getProgram( gl, vertexShader, fragmentShader );
 
 //3단계: 버퍼 생성
-const buffer = util.createAndBindBuffer( gl.ARRAY_BUFFER, gl.STATIC_DRAW, new Float32Array(triangle_vertices) );
+const buffer = util.createAndBindBuffer( gl, gl.ARRAY_BUFFER, gl.STATIC_DRAW, new Float32Array(triangle_vertices) );
 
 //4단계: GPU와 CPU연결 및 데이터 전송
 gl.useProgram( program );
-const position = util.linkGPUAndCPU({
+const position = util.linkGPUAndCPU( gl, {
     program: program,
     gpuVariable: 'position',
     channel: gl.ARRAY_BUFFER,
