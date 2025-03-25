@@ -65,6 +65,24 @@ class WebGLUtils {
         );
         return position;
     }
+
+    getGPUCoords = ( gl, obj ) => {
+        return {
+            startX: -1.0 + obj.startX / gl.canvas.width * 2,
+            startY: -1.0 + obj.startY / gl.canvas.height * 2,
+            endX: -1.0 + obj.endX / gl.canvas.width * 2,
+            endY: -1.0 + obj.endY / gl.canvas.height * 2
+        };
+    }
+
+    getTextureColor = ( gl, obj ) => {
+        return {
+            red: obj.startX / gl.canvas.width,
+            green: obj.startY / gl.canvas.height,
+            blue: obj.endX / gl.canvas.width,
+            alpha: obj.endY / gl.canvas.height
+        }
+    }
 }
 
 export default WebGLUtils
